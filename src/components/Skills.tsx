@@ -21,7 +21,10 @@ const labelMap: Record<string, string> = {
 
 export function Skills() {
   return (
-    <Section title="Skills & Expertise" id="skills">
+    <Section title="Skills & Expertise" id="skills" className="relative overflow-hidden">
+      {/* Background Lighting Effect */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 blur-[120px] rounded-full pointer-events-none -z-10" />
+      
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {Object.entries(resumeData.skills).map(([key, items], index) => {
           const Icon = iconMap[key];
@@ -30,7 +33,7 @@ export function Skills() {
               key={key}
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
+              viewport={{ once: false, amount: 0.2 }}
               transition={{ duration: 0.3, delay: index * 0.1 }}
               className="p-6 glass rounded-2xl group hover:border-primary/50 transition-colors"
             >

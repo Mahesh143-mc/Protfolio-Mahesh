@@ -5,7 +5,11 @@ import { resumeData } from "../data/resumeData";
 
 export function Projects() {
   return (
-    <Section title="Featured Projects" id="projects">
+    <Section title="Featured Projects" id="projects" className="relative overflow-hidden">
+      {/* Background Lighting Effects */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/10 blur-[130px] rounded-full pointer-events-none -z-10" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-accent/5 blur-[130px] rounded-full pointer-events-none -z-10" />
+
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Main Projects */}
         {resumeData.projects.map((project, index) => (
@@ -13,7 +17,7 @@ export function Projects() {
             key={project.title}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false, amount: 0.1 }}
             transition={{ duration: 0.5, delay: index * 0.2 }}
             className="group relative overflow-hidden glass rounded-3xl p-8"
           >
@@ -75,7 +79,7 @@ export function Projects() {
             key={exp.project}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false, amount: 0.1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
             className="lg:col-span-2 group relative overflow-hidden glass rounded-3xl p-8 border-primary/20"
           >

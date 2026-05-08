@@ -5,7 +5,10 @@ import { resumeData } from "../data/resumeData";
 
 export function Contact() {
   return (
-    <Section title="Get In Touch" id="contact" className="mb-20">
+    <Section title="Get In Touch" id="contact" className="mb-20 relative overflow-hidden">
+      {/* Background Lighting Effect */}
+      <div className="absolute bottom-0 right-[10%] w-[500px] h-[500px] bg-fuchsia-500/10 blur-[130px] rounded-full pointer-events-none -z-10" />
+
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         <div className="space-y-8">
           <p className="text-xl text-muted-foreground">
@@ -42,7 +45,7 @@ export function Contact() {
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
+          viewport={{ once: false, amount: 0.2 }}
           className="glass rounded-3xl p-8"
         >
           <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>

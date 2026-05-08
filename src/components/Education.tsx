@@ -5,7 +5,10 @@ import { resumeData } from "../data/resumeData";
 
 export function Education() {
   return (
-    <Section title="Education & Certifications" id="education">
+    <Section title="Education & Certifications" id="education" className="relative overflow-hidden">
+      {/* Background Lighting Effect */}
+      <div className="absolute top-1/2 left-[30%] -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-violet-500/5 blur-[120px] rounded-full pointer-events-none -z-10" />
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
         <div className="space-y-8">
           <h3 className="text-2xl font-bold flex items-center gap-3 mb-8">
@@ -16,7 +19,7 @@ export function Education() {
               key={edu.degree}
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false, amount: 0.2 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="relative pl-8 border-l-2 border-border pb-8 last:pb-0"
             >
@@ -45,7 +48,7 @@ export function Education() {
                 key={cert}
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: false, amount: 0.2 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="p-5 glass rounded-2xl flex items-center gap-4 group hover:border-primary/50 transition-colors"
               >

@@ -2,6 +2,7 @@ export const resumeData = {
   name: "Mahesh K",
   title: "Full-Stack Web Developer",
   status: "Fresher",
+  profileImage: "/src/assets/Mahesh.png",
   objective: "Motivated BCA final-year student skilled in full-stack web development with ReactJS, NodeJS, Firebase, JavaScript, Bootstrap, PHP, MySQL, and MongoDB. Strong in programming concepts and problem-solving, eager to contribute to projects and grow as an IT professional.",
   contact: {
     email: "kmahesh10634@gmail.com",
