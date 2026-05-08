@@ -77,7 +77,7 @@ export function Contact() {
   );
 }
 
-function ContactInfo({ icon, label, value, href }: { icon: any, label: string, value: string, href?: string }) {
+function ContactInfo({ icon, label, value, href }: { icon: React.ReactNode, label: string, value: string, href?: string }) {
   const content = (
     <div className="flex items-center gap-4 group">
       <div className="p-3 bg-white/5 border border-white/10 rounded-xl text-primary group-hover:bg-primary/20 transition-colors">
@@ -93,7 +93,7 @@ function ContactInfo({ icon, label, value, href }: { icon: any, label: string, v
   return href ? <a href={href} className="block">{content}</a> : <div>{content}</div>;
 }
 
-function SocialLink({ href, icon }: { href: string, icon: any }) {
+function SocialLink({ href, icon }: { href: string, icon: React.ReactNode }) {
   return (
     <a 
       href={href} 

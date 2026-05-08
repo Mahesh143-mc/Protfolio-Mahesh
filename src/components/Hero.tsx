@@ -1,16 +1,17 @@
-import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Sparkles, Download, MessageSquare, Github, Linkedin, Globe, Mail } from "lucide-react";
+import { motion } from "framer-motion";
+import { Download, MessageSquare, Github, Linkedin, Mail } from "lucide-react";
 import { resumeData } from "../data/resumeData";
 import { useState, useEffect } from "react";
+
+const WORDS = ["MAHESH", "DEVELOPER", "DESIGNER", "PROBLEM SOLVER"];
 
 export function Hero() {
   const [typedText, setTypedText] = useState("");
   const [wordIndex, setWordIndex] = useState(0);
-  const words = ["MAHESH", "DEVELOPER", "DESIGNER", "PROBLEM SOLVER"];
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    const currentWord = words[wordIndex];
+    const currentWord = WORDS[wordIndex];
     const timeout = setTimeout(() => {
       if (!isDeleting) {
         setTypedText(currentWord.substring(0, typedText.length + 1));
@@ -21,7 +22,7 @@ export function Hero() {
         setTypedText(currentWord.substring(0, typedText.length - 1));
         if (typedText === "") {
           setIsDeleting(false);
-          setWordIndex((prev) => (prev + 1) % words.length);
+          setWordIndex((prev) => (prev + 1) % WORDS.length);
         }
       }
     }, isDeleting ? 50 : 150);
@@ -182,7 +183,7 @@ export function Hero() {
   );
 }
 
-function SocialLink({ href, icon, label, isFloating }: { href: string, icon: any, label: string, isFloating?: boolean }) {
+function SocialLink({ href, icon, label, isFloating }: { href: string, icon: React.ReactNode, label: string, isFloating?: boolean }) {
   if (isFloating) {
     return (
       <motion.a

@@ -3,7 +3,7 @@ import { Code2, Layout, Database, Wrench, Users } from "lucide-react";
 import { Section } from "./Section";
 import { resumeData } from "../data/resumeData";
 
-const iconMap: Record<string, any> = {
+const iconMap: Record<string, React.ElementType> = {
   programming: Code2,
   frontend: Layout,
   backend: Database,

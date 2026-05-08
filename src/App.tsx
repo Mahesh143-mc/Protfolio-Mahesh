@@ -7,6 +7,7 @@ import { Education } from "./components/Education";
 import { Contact } from "./components/Contact";
 import { resumeData } from "./data/resumeData";
 import { motion, useScroll, useSpring } from "framer-motion";
+import React from "react";
 
 function App() {
   const { scrollYProgress } = useScroll();
@@ -17,7 +18,7 @@ function App() {
   });
 
   return (
-    <div className="bg-background text-foreground selection:bg-primary/30 selection:text-primary relative overflow-hidden">
+    <div className="bg-background text-foreground selection:bg-primary/30 selection:text-primary relative overflow-x-hidden">
       {/* Global Background (Kept clean for Hero) */}
       <div className="fixed inset-0 bg-[#030014] -z-20" />
 
@@ -125,20 +126,28 @@ function Stat({ label, value, delay = 0 }: { label: string, value: string, delay
 }
 
 
+const GENERATED_STARS = [...Array(120)].map((_, i) => ({
+  id: i,
+  top: `${Math.random() * 100}%`,
+  left: `${Math.random() * 100}%`,
+  size: `${Math.random() * 4}px`,
+  duration: `${1.5 + Math.random() * 3.5}s`,
+}));
+
 function StarField() {
   return (
     <div className="stars-container">
-      {[...Array(120)].map((_, i) => (
+      {GENERATED_STARS.map((star) => (
         <div
-          key={i}
+          key={star.id}
           className="star"
           style={{
-            top: `${Math.random() * 100}%`,
-            left: `${Math.random() * 100}%`,
-            width: `${Math.random() * 4}px`,
-            height: `${Math.random() * 4}px`,
-            '--duration': `${1.5 + Math.random() * 3.5}s`,
-          } as any}
+            top: star.top,
+            left: star.left,
+            width: star.size,
+            height: star.size,
+            '--duration': star.duration,
+          } as React.CSSProperties}
         />
       ))}
     </div>
