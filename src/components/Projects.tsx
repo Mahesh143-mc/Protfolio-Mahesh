@@ -1,5 +1,5 @@
-import { motion, AnimatePresence } from "framer-motion";
-import { ExternalLink, Github, Code, Calendar, ChevronLeft, ChevronRight } from "lucide-react";
+import { motion } from "framer-motion";
+import { Github, Code, Calendar, ChevronLeft, ChevronRight } from "lucide-react";
 import { Section } from "./Section";
 import { resumeData } from "../data/resumeData";
 import { useState, useEffect } from "react";
@@ -235,7 +235,7 @@ export function Projects() {
               </div>
 
               <div className="grid md:grid-cols-2 gap-6">
-                {exp.description.map((desc, i) => (
+                {exp.description.map((desc: string, i: number) => (
                   <div key={i} className="flex gap-4 p-6 bg-white/5 border border-white/10 rounded-3xl group-hover:bg-white/10 transition-colors">
                     <div className="mt-1.5 w-2 h-2 bg-primary rounded-full shadow-[0_0_10px_var(--color-primary)]" />
                     <p className="text-muted-foreground text-sm leading-relaxed">{desc}</p>

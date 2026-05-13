@@ -1,4 +1,56 @@
-export const resumeData = {
+interface Experience {
+  project: string;
+  title: string;
+  period: string;
+  description: string[];
+}
+
+interface Project {
+  title: string;
+  period: string;
+  image: string;
+  tech: string[];
+  description?: string[];
+  items?: string[];
+  githubUrl?: string;
+  liveUrl?: string;
+}
+
+interface ResumeData {
+  name: string;
+  title: string;
+  status: string;
+  profileImage: string;
+  objective: string;
+  contact: {
+    email: string;
+    phone: string;
+    location: string;
+    github: string;
+    linkedin: string;
+    portfolio: string;
+    cvUrl: string;
+  };
+  education: {
+    degree: string;
+    institution: string;
+    period: string;
+    location: string;
+    percentage: string;
+  }[];
+  skills: {
+    programming: string[];
+    frontend: string[];
+    backend: string[];
+    tools: string[];
+    softSkills: string[];
+  };
+  experience: Experience[];
+  projects: Project[];
+  certificates: string[];
+}
+
+export const resumeData: ResumeData = {
   name: "Mahesh K",
   title: "Full-Stack Web Developer",
   status: "Freelance Full-Stack Developer",
@@ -82,3 +134,4 @@ export const resumeData = {
     "Python For Data Science"
   ]
 };
+
