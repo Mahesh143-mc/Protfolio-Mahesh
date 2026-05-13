@@ -3,7 +3,7 @@ import { Download, MessageSquare, Github, Linkedin, Mail } from "lucide-react";
 import { resumeData } from "../data/resumeData";
 import { useState, useEffect } from "react";
 
-const WORDS = ["MAHESH", "DEVELOPER", "DESIGNER", "PROBLEM SOLVER"];
+const WORDS = ["MAHESH", "DEVELOPER", "VIBE CODING", "DESIGNER", "PROBLEM SOLVER"];
 
 export function Hero() {
   const [typedText, setTypedText] = useState("");
@@ -72,7 +72,9 @@ export function Hero() {
             className="flex justify-center lg:justify-start"
           >
             <a
-              href="#"
+              href={resumeData.contact.cvUrl}
+              target="_blank"
+              rel="noreferrer"
               className="group px-8 py-3 bg-gradient-to-r from-[#00c6ff] to-[#0072ff] text-white rounded-full font-bold flex items-center gap-3 shadow-xl hover:shadow-[#0072ff]/50 transition-all text-sm md:text-base"
             >
               <Download size={20} />

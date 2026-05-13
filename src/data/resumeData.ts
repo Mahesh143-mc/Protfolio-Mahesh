@@ -1,22 +1,23 @@
 export const resumeData = {
   name: "Mahesh K",
   title: "Full-Stack Web Developer",
-  status: "Fresher",
+  status: "Freelance Full-Stack Developer",
   profileImage: "https://res.cloudinary.com/dnwb5u0xn/image/upload/v1778266778/Mahesh_nen6ef.png",
-  objective: "Motivated BCA final-year student skilled in full-stack web development with ReactJS, NodeJS, Firebase, JavaScript, Bootstrap, PHP, MySQL, and MongoDB. Strong in programming concepts and problem-solving, eager to contribute to projects and grow as an IT professional.",
+  objective: "Freelance Full-Stack Developer with a strong foundation in problem-solving and hands-on experience in building scalable web applications. Committed to delivering high-quality digital solutions and continuously evolving as an IT professional.",
   contact: {
     email: "kmahesh10634@gmail.com",
     phone: "+91 9943852902",
     location: "Sivakasi, Viruthunagar, 626130",
     github: "https://github.com/Mahesh143-mc",
     linkedin: "www.linkedin.com/in/kmahesh1634",
-    portfolio: "mahesh.vercel.app"
+    portfolio: "mahesh.vercel.app",
+    cvUrl: "https://drive.google.com/file/d/1evgWWZWg2iaqZe0wKt3zdTxxCMu9Gnvh/view?usp=sharing"
   },
   education: [
     {
       degree: "Bachelor of Computer Applications (BCA)",
       institution: "Sri Kaliswari College(Autonomous)",
-      period: "2023 - 2026",
+      period: "2023 - 2026 (Completed)",
       location: "Sivakasi, India",
       percentage: "80%"
     },
@@ -32,34 +33,45 @@ export const resumeData = {
     programming: ["Java", "Python"],
     frontend: ["React.js", "Next.js", "Electron.js", "HTML5", "CSS3", "JavaScript", "Responsive Design"],
     backend: ["Node.js", "Express.js", "MongoDB", "Firebase"],
-    tools: ["GitHub", "VS Code"],
+    tools: ["GitHub", "VS Code", "Antigravity", "Google AI Studio"],
     softSkills: ["Team Management", "Adaptability"]
   },
-  experience: [
-    {
-      title: "Freelance Web Developer",
-      project: "Crackers Shop Management System",
-      period: "May - June (2025)",
-      description: [
-        "Designed and developed a Crackers Shop Management System using ReactJS and Firebase.",
-        "Built responsive front-end interfaces ensuring smooth user interaction.",
-        "Integrated Firebase for authentication and real-time data handling."
-      ]
-    }
-  ],
+  experience: [],
   projects: [
     {
-      title: "FLEXSite - Inventory Management Platform",
-      period: "Present - 2025",
-      tech: ["React.js", "Node.js", "Express.js", "MongoDB"],
+      title: "Crackers Shop Management System",
+      period: "May 2025",
+      image: "/src/assets/crackers_shop.png",
+      tech: ["ReactJS", "Firebase", "Tailwind CSS"],
       description: [
-        "Developed a scalable, full-stack platform for Small/Medium Enterprises (SMEs).",
-        "Engineered a full customization engine enabling admins to modify UI templates.",
-        "Implemented real-time inventory tracking, barcode/QR support, and multi-payment POS."
-      ]
+        "A full-scale retail management system for a fireworks store with real-time stock and billing.",
+        "Streamlines customer orders and inventory tracking for seasonal business spikes."
+      ],
+      githubUrl: "https://github.com/Mahesh143-mc"
+    },
+    {
+      title: "Logesh Vivasyi - POS & Inventory System",
+      period: "February 2025",
+      image: "/src/assets/pos_project.png",
+      tech: ["React", "TypeScript", "Firebase"],
+      description: [
+        "Advanced POS & Inventory system supporting Tamil/English with real-time stock tracking.",
+        "Features AI-powered analytics, dynamic invoice generation, and full business reporting."
+      ],
+      githubUrl: "https://github.com/Mahesh143-mc/Emerald-Green-Customer-Portal",
+      liveUrl: "https://logesg.vercel.app/"
     },
     {
       title: "Mini Web Projects",
+      period: "August 2024",
+      image: "/src/assets/mini_projects.png",
+      tech: ["HTML", "CSS", "JavaScript"],
+      items: ["Calculator", "To-Do List", "Notes Update App", "Profile Page", "Shopping Static Page", "Text-to-Voice Converter"]
+    },
+    {
+      title: "Sample Project ",
+      period: "August 2024",
+      image: "/src/assets/mini_projects.png",
       tech: ["HTML", "CSS", "JavaScript"],
       items: ["Calculator", "To-Do List", "Notes Update App", "Profile Page", "Shopping Static Page", "Text-to-Voice Converter"]
     }

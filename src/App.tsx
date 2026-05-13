@@ -1,9 +1,9 @@
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
 import { Section } from "./components/Section";
-import { Skills } from "./components/Skills";
 import { Projects } from "./components/Projects";
 import { Education } from "./components/Education";
+import { Skills } from "./components/Skills";
 import { Contact } from "./components/Contact";
 import { resumeData } from "./data/resumeData";
 import { motion, useScroll, useSpring } from "framer-motion";
@@ -68,7 +68,7 @@ function App() {
                 </motion.p>
                 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
-                  <Stat label="Experience" value="Fresher" delay={0.1} />
+                  <Stat label="Experience" value="Freelance" delay={0.1} />
                   <Stat label="Projects" value="10+" delay={0.2} />
                   <Stat label="Skills" value="15+" delay={0.3} />
                   <Stat label="Location" value="India" delay={0.4} />

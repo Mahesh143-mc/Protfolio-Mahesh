@@ -18,7 +18,7 @@ export function Section({ children, id, className, title }: SectionProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-3xl md:text-4xl font-bold mb-12 gradient-text inline-block"
+          className="text-3xl md:text-5xl font-black mb-16 gradient-text block text-center uppercase tracking-[0.3em]"
         >
           {title}
         </motion.h2>
