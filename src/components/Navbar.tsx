@@ -17,7 +17,7 @@ export function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 px-6 py-4">
-      <div className="max-w-7xl mx-auto flex items-center justify-between glass rounded-2xl px-6 py-3">
+      <div className="max-w-7xl mx-auto flex items-center justify-between bg-black/40 backdrop-blur-xl border border-white/10 rounded-2xl px-6 py-3 shadow-2xl">
         <motion.a
           href="#home"
           initial={{ opacity: 0 }}
@@ -33,7 +33,7 @@ export function Navbar() {
             <a
               key={link.name}
               href={link.href}
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+              className="text-sm font-bold text-white/70 hover:text-primary transition-all hover:scale-105 drop-shadow-sm"
             >
               {link.name}
             </a>

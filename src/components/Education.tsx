@@ -44,19 +44,27 @@ export function Education() {
           </h3>
           <div className="space-y-4">
             {resumeData.certificates.map((cert, index) => (
-              <motion.div
-                key={cert}
+              <motion.a
+                key={cert.name}
+                href={cert.url}
+                target="_blank"
+                rel="noopener noreferrer"
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: false, amount: 0.2 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="p-5 glass rounded-2xl flex items-center gap-4 group hover:border-primary/50 transition-colors"
+                className="p-5 glass rounded-2xl flex items-center gap-4 group hover:border-primary/50 transition-all hover:scale-[1.02] cursor-pointer"
               >
                 <div className="p-3 bg-primary/10 rounded-xl text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
                   <Award size={20} />
                 </div>
-                <span className="font-medium">{cert}</span>
-              </motion.div>
+                <div className="flex flex-col">
+                  <span className="font-bold text-foreground group-hover:text-primary transition-colors">{cert.name}</span>
+                  <span className="text-xs text-muted-foreground flex items-center gap-1 mt-1 group-hover:text-primary/70">
+                    Click to view <Award size={10} />
+                  </span>
+                </div>
+              </motion.a>
             ))}
           </div>
         </div>

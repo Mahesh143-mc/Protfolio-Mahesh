@@ -1,15 +1,44 @@
-import { motion } from "framer-motion";
-import { Github, Code, Calendar, ChevronLeft, ChevronRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Github, Code, Calendar, ChevronLeft, ChevronRight, X, ExternalLink, Globe } from "lucide-react";
 import { Section } from "./Section";
 import { resumeData } from "../data/resumeData";
 import { useState, useEffect } from "react";
 
+interface Project {
+  title: string;
+  period: string;
+  image: string;
+  tech: string[];
+  description?: string[];
+  items?: string[];
+  githubUrl?: string;
+  liveUrl?: string;
+}
+
 export function Projects() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(1);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const projects = resumeData.projects;
   
   const [visibleCards, setVisibleCards] = useState(3);
+
+  useEffect(() => {
+    if (selectedProject) {
+      document.body.style.overflow = 'hidden';
+      const wrapper = document.querySelector('.content-wrapper');
+      if (wrapper) (wrapper as HTMLElement).style.zIndex = '100';
+    } else {
+      document.body.style.overflow = 'unset';
+      const wrapper = document.querySelector('.content-wrapper');
+      if (wrapper) (wrapper as HTMLElement).style.zIndex = '10';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+      const wrapper = document.querySelector('.content-wrapper');
+      if (wrapper) (wrapper as HTMLElement).style.zIndex = '10';
+    };
+  }, [selectedProject]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -152,14 +181,12 @@ export function Projects() {
 
                     {/* Action Buttons */}
                     <div className="flex gap-3">
-                      <a 
-                        href={project.liveUrl || "#"} 
-                        target="_blank" 
-                        rel="noreferrer"
+                      <button 
+                        onClick={() => setSelectedProject(project)}
                         className="flex-1 bg-primary/10 hover:bg-primary border border-primary/20 text-primary hover:text-primary-foreground py-3 rounded-xl font-bold text-xs md:text-sm text-center transition-all duration-300"
                       >
                         View Details
-                      </a>
+                      </button>
                       {project.githubUrl && (
                         <a 
                           href={project.githubUrl} 
@@ -246,6 +273,137 @@ export function Projects() {
           ))}
         </div>
       </div>
+
+      {/* Project Details Modal */}
+      <AnimatePresence>
+        {selectedProject && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[9999] flex items-center justify-center p-4 md:p-6 bg-black/90 backdrop-blur-md"
+            onClick={() => setSelectedProject(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              className="bg-[#0f172a] border border-white/10 w-full max-w-5xl max-h-[90vh] rounded-2xl overflow-hidden flex flex-col relative shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Header */}
+              <div className="p-6 md:p-8 border-b border-white/5 flex justify-between items-start">
+                <div className="space-y-1">
+                  <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
+                    {selectedProject.title}
+                  </h2>
+                  <p className="text-muted-foreground text-sm">Detailed project overview</p>
+                </div>
+                <button 
+                  onClick={() => setSelectedProject(null)}
+                  className="w-10 h-10 bg-black/40 border border-white/10 rounded-full flex items-center justify-center text-white hover:bg-white/10 transition-colors"
+                >
+                  <X size={20} />
+                </button>
+              </div>
+
+              <div className="overflow-y-auto custom-scrollbar">
+                {/* Image Section (Carousel Style) */}
+                <div className="p-4 md:p-8">
+                   <div className="relative rounded-xl overflow-hidden bg-[#1e293b] aspect-video">
+                    <img 
+                      src={selectedProject.image} 
+                      alt={selectedProject.title} 
+                      className="w-full h-full object-cover"
+                    />
+                    {/* Pagination Dots for Image */}
+                    <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-1.5">
+                      {[1, 2, 3, 4, 5].map((dot, i) => (
+                        <div 
+                          key={dot} 
+                          className={`w-2.5 h-2.5 rounded-full ${i === 2 ? 'bg-primary w-6' : 'bg-white/20'}`} 
+                        />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Content Grid */}
+                <div className="px-8 pb-12 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12">
+                  {/* Left Column: Description */}
+                  <div className="lg:col-span-7 space-y-8">
+                    <div className="space-y-4">
+                      <h3 className="text-xl font-bold text-white">About This Project</h3>
+                      <div className="space-y-4 text-slate-400 text-sm md:text-base leading-relaxed">
+                        {selectedProject.description?.map((para, i) => (
+                          <p key={i}>{para}</p>
+                        ))}
+                        {selectedProject.items && (
+                          <p>
+                            Key features include: {selectedProject.items.join(", ")}.
+                          </p>
+                        )}
+                      </div>
+                    </div>
+
+                    <div className="flex flex-wrap gap-4 pt-4">
+                      {selectedProject.liveUrl && (
+                        <a 
+                          href={selectedProject.liveUrl} 
+                          target="_blank" 
+                          rel="noreferrer"
+                          className="px-6 py-3 bg-[#0070f3] text-white rounded-lg font-bold text-sm flex items-center gap-2 hover:bg-[#0070f3]/90 transition-colors"
+                        >
+                          <ExternalLink size={18} /> Live Demo
+                        </a>
+                      )}
+                      {selectedProject.githubUrl && (
+                        <a 
+                          href={selectedProject.githubUrl} 
+                          target="_blank" 
+                          rel="noreferrer"
+                          className="px-6 py-3 bg-white/5 border border-white/10 text-white rounded-lg font-bold text-sm flex items-center gap-2 hover:bg-white/10 transition-colors"
+                        >
+                          <Github size={18} /> View Source
+                        </a>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Right Column: Meta Info */}
+                  <div className="lg:col-span-5 space-y-10">
+                    {/* Contributors */}
+                    <div className="space-y-4">
+                      <h3 className="text-lg font-bold text-white">Contributors</h3>
+                      <div className="flex items-center gap-3 p-3 bg-white/5 rounded-xl border border-white/5">
+                        <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary overflow-hidden">
+                           <img src={resumeData.profileImage} alt="Owner" className="w-full h-full object-cover" />
+                        </div>
+                        <span className="text-sm text-slate-300 font-medium">{resumeData.name}</span>
+                      </div>
+                    </div>
+
+                    {/* Technologies */}
+                    <div className="space-y-4">
+                      <h3 className="text-lg font-bold text-white">Technologies Used</h3>
+                      <div className="space-y-3">
+                        {selectedProject.tech.map((t) => (
+                          <div key={t} className="flex items-center gap-3 p-3 bg-[#1e293b]/50 border border-white/5 rounded-lg group hover:border-primary/30 transition-colors">
+                            <div className="w-5 h-5 flex items-center justify-center text-primary">
+                              <Code size={16} />
+                            </div>
+                            <span className="text-sm text-slate-300 font-medium">{t}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </Section>
   );
 }

@@ -47,7 +47,10 @@ interface ResumeData {
   };
   experience: Experience[];
   projects: Project[];
-  certificates: string[];
+  certificates: {
+    name: string;
+    url: string;
+  }[];
 }
 
 export const resumeData: ResumeData = {
@@ -62,7 +65,7 @@ export const resumeData: ResumeData = {
     location: "Sivakasi, Viruthunagar, 626130",
     github: "https://github.com/Mahesh143-mc",
     linkedin: "www.linkedin.com/in/kmahesh1634",
-    portfolio: "mahesh.vercel.app",
+    portfolio: "protfolio-mahesh.vercel.app",
     cvUrl: "https://drive.google.com/file/d/1evgWWZWg2iaqZe0wKt3zdTxxCMu9Gnvh/view?usp=sharing"
   },
   education: [
@@ -93,45 +96,49 @@ export const resumeData: ResumeData = {
     {
       title: "Crackers Shop Management System",
       period: "May 2025",
-      image: "/src/assets/crackers_shop.png",
+      image: "https://res.cloudinary.com/dnwb5u0xn/image/upload/v1778677660/Screenshot_2026-05-13_183740_linef3.png",
       tech: ["ReactJS", "Firebase", "Tailwind CSS"],
       description: [
         "A full-scale retail management system for a fireworks store with real-time stock and billing.",
         "Streamlines customer orders and inventory tracking for seasonal business spikes."
       ],
+      liveUrl: "https://crackers-shop.vercel.app/",
       githubUrl: "https://github.com/Mahesh143-mc"
     },
     {
       title: "Logesh Vivasyi - POS & Inventory System",
       period: "February 2025",
-      image: "/src/assets/pos_project.png",
+      image: "https://res.cloudinary.com/dnwb5u0xn/image/upload/v1778677473/Screenshot_2026-05-13_183345_potlun.png",
       tech: ["React", "TypeScript", "Firebase"],
       description: [
         "Advanced POS & Inventory system supporting Tamil/English with real-time stock tracking.",
         "Features AI-powered analytics, dynamic invoice generation, and full business reporting."
       ],
       githubUrl: "https://github.com/Mahesh143-mc/Emerald-Green-Customer-Portal",
-      liveUrl: "https://logesg.vercel.app/"
+      liveUrl: "https://logesh-vivasayi.vercel.app/"
     },
     {
       title: "Mini Web Projects",
       period: "August 2024",
-      image: "/src/assets/mini_projects.png",
+      image: "https://res.cloudinary.com/dnwb5u0xn/image/upload/v1778677729/mini_projects_lrkwmg.jpg",
       tech: ["HTML", "CSS", "JavaScript"],
-      items: ["Calculator", "To-Do List", "Notes Update App", "Profile Page", "Shopping Static Page", "Text-to-Voice Converter"]
-    },
-    {
-      title: "Sample Project ",
-      period: "August 2024",
-      image: "/src/assets/mini_projects.png",
-      tech: ["HTML", "CSS", "JavaScript"],
-      items: ["Calculator", "To-Do List", "Notes Update App", "Profile Page", "Shopping Static Page", "Text-to-Voice Converter"]
+      items: ["Calculator", "To-Do List", "Notes Update App", "Profile Page", "Shopping Static Page", "Text-to-Voice Converter"],
+      githubUrl: "https://github.com/Mahesh143-mc?tab=repositories"
     }
   ],
   certificates: [
-    "Soft Skill Development - Swayam(NPTEL)",
-    "Basics of MongoDB - Learnathon",
-    "Python For Data Science"
+    {
+      name: "Soft Skill Development - Swayam(NPTEL)",
+      url: "https://drive.google.com/file/d/1DpZ9CkvySwWG7Uw1XrPnPH0umhbCnZUN/view?usp=sharing"
+    },
+    {
+      name: "Basics of MongoDB - Learnathon",
+      url: "https://drive.google.com/file/d/108BsQea7iN4Yk-okfVMnI8XXoKzMyVyW/view?usp=sharing"
+    },
+    {
+      name: "Python For Data Science",
+      url: "https://drive.google.com/file/d/1wvyvpAKljGFiYW9LNzleA1-Q6PyP2nnY/view?usp=sharing"
+    }
   ]
 };
 

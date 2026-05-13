@@ -48,26 +48,41 @@ export function Contact() {
           viewport={{ once: false, amount: 0.2 }}
           className="glass rounded-3xl p-8"
         >
-          <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+          <form 
+            className="space-y-6" 
+            onSubmit={(e) => {
+              e.preventDefault();
+              const formData = new FormData(e.currentTarget);
+              const name = formData.get('name');
+              const message = formData.get('message');
+              const subject = formData.get('subject');
+              
+              const whatsappUrl = `https://wa.me/919943852902?text=${encodeURIComponent(
+                `Hello Mahesh, I am ${name}.\nSubject: ${subject}\n\n${message}`
+              )}`;
+              
+              window.open(whatsappUrl, '_blank');
+            }}
+          >
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
                 <label className="text-sm font-medium text-muted-foreground">Name</label>
-                <input type="text" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-primary transition-colors" placeholder="John Doe" />
+                <input name="name" type="text" required className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-primary transition-colors" placeholder="John Doe" />
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-medium text-muted-foreground">Email</label>
-                <input type="email" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-primary transition-colors" placeholder="john@example.com" />
+                <input name="email" type="email" required className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-primary transition-colors" placeholder="john@example.com" />
               </div>
             </div>
             <div className="space-y-2">
               <label className="text-sm font-medium text-muted-foreground">Subject</label>
-              <input type="text" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-primary transition-colors" placeholder="Project Inquiry" />
+              <input name="subject" type="text" required className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:border-primary transition-colors" placeholder="Project Inquiry" />
             </div>
             <div className="space-y-2">
               <label className="text-sm font-medium text-muted-foreground">Message</label>
-              <textarea className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 h-32 focus:outline-none focus:border-primary transition-colors resize-none" placeholder="How can I help you?" />
+              <textarea name="message" required className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 h-32 focus:outline-none focus:border-primary transition-colors resize-none" placeholder="How can I help you?" />
             </div>
-            <button className="w-full py-4 bg-primary text-primary-foreground rounded-xl font-bold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+            <button type="submit" className="w-full py-4 bg-primary text-primary-foreground rounded-xl font-bold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
               Send Message <Send size={18} />
             </button>
           </form>

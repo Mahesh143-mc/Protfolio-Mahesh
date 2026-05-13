@@ -38,7 +38,7 @@ function App() {
         </div>
 
         {/* Content wrapper that scrolls over the Hero */}
-        <div className="relative z-10 mt-[100vh] bg-background shadow-[0_-50px_100px_rgba(0,0,0,0.5)] min-h-screen">
+        <div className="content-wrapper relative z-10 mt-[100vh] bg-background shadow-[0_-50px_100px_rgba(0,0,0,0.5)] min-h-screen">
           {/* Section-specific Background Effects */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
             {/* Glowing Grid */}
