@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { Github, Code, Calendar, ChevronLeft, ChevronRight, X, ExternalLink, Globe } from "lucide-react";
+import { Github, Code, Calendar, ChevronLeft, ChevronRight, X, ExternalLink } from "lucide-react";
 import { Section } from "./Section";
 import { resumeData } from "../data/resumeData";
 import { useState, useEffect } from "react";
