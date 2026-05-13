@@ -8,6 +8,7 @@ import { Contact } from "./components/Contact";
 import { resumeData } from "./data/resumeData";
 import { motion, useScroll, useSpring } from "framer-motion";
 import React from "react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 function App() {
   const { scrollYProgress } = useScroll();
@@ -19,6 +20,7 @@ function App() {
 
   return (
     <div className="bg-background text-foreground selection:bg-primary/30 selection:text-primary relative overflow-x-hidden">
+      <SpeedInsights />
       {/* Global Background (Kept clean for Hero) */}
       <div className="fixed inset-0 bg-[#030014] -z-20" />
 
