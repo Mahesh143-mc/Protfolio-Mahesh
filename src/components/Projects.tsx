@@ -209,6 +209,7 @@ export function Projects() {
             <button 
               onClick={prevProject}
               className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-white transition-all active:scale-90"
+              aria-label="Previous Project"
             >
               <ChevronLeft size={20} />
             </button>
@@ -231,6 +232,7 @@ export function Projects() {
             <button 
               onClick={nextProject}
               className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-white transition-all active:scale-90"
+              aria-label="Next Project"
             >
               <ChevronRight size={20} />
             </button>

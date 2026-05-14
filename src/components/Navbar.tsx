@@ -41,16 +41,16 @@ export function Navbar() {
         </div>
 
         <div className="hidden md:flex items-center gap-4">
-          <a href={resumeData.contact.github} target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-primary">
+          <a href={resumeData.contact.github} target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-primary" aria-label="Github Profile">
             <Github size={20} />
           </a>
-          <a href={`https://${resumeData.contact.linkedin}`} target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-primary">
+          <a href={`https://${resumeData.contact.linkedin}`} target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-primary" aria-label="LinkedIn Profile">
             <Linkedin size={20} />
           </a>
         </div>
 
         {/* Mobile Toggle */}
-        <button className="md:hidden text-foreground" onClick={() => setIsOpen(!isOpen)}>
+        <button className="md:hidden text-foreground" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle Menu">
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>

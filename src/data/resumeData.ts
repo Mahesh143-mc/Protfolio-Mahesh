@@ -96,7 +96,7 @@ export const resumeData: ResumeData = {
     {
       title: "Crackers Shop Management System",
       period: "May 2025",
-      image: "https://res.cloudinary.com/dnwb5u0xn/image/upload/v1778677660/Screenshot_2026-05-13_183740_linef3.png",
+      image: "https://res.cloudinary.com/dnwb5u0xn/image/upload/f_auto,q_auto/v1778677660/Screenshot_2026-05-13_183740_linef3.png",
       tech: ["ReactJS", "Firebase", "Tailwind CSS"],
       description: [
         "A full-scale retail management system for a fireworks store with real-time stock and billing.",
@@ -108,7 +108,7 @@ export const resumeData: ResumeData = {
     {
       title: "Logesh Vivasyi - POS & Inventory System",
       period: "February 2025",
-      image: "https://res.cloudinary.com/dnwb5u0xn/image/upload/v1778677473/Screenshot_2026-05-13_183345_potlun.png",
+      image: "https://res.cloudinary.com/dnwb5u0xn/image/upload/f_auto,q_auto/v1778677473/Screenshot_2026-05-13_183345_potlun.png",
       tech: ["React", "TypeScript", "Firebase"],
       description: [
         "Advanced POS & Inventory system supporting Tamil/English with real-time stock tracking.",
@@ -120,7 +120,7 @@ export const resumeData: ResumeData = {
     {
       title: "Mini Web Projects",
       period: "August 2024",
-      image: "https://res.cloudinary.com/dnwb5u0xn/image/upload/v1778677729/mini_projects_lrkwmg.jpg",
+      image: "https://res.cloudinary.com/dnwb5u0xn/image/upload/f_auto,q_auto/v1778677729/mini_projects_lrkwmg.jpg",
       tech: ["HTML", "CSS", "JavaScript"],
       items: ["Calculator", "To-Do List", "Notes Update App", "Profile Page", "Shopping Static Page", "Text-to-Voice Converter"],
       githubUrl: "https://github.com/Mahesh143-mc?tab=repositories"

@@ -36,9 +36,9 @@ export function Contact() {
           </div>
 
           <div className="flex gap-4 pt-4">
-            <SocialLink href={resumeData.contact.github} icon={<Github />} />
-            <SocialLink href={`https://${resumeData.contact.linkedin}`} icon={<Linkedin />} />
-            <SocialLink href={`https://${resumeData.contact.portfolio}`} icon={<Globe />} />
+            <SocialLink href={resumeData.contact.github} icon={<Github />} label="GitHub Profile" />
+            <SocialLink href={`https://${resumeData.contact.linkedin}`} icon={<Linkedin />} label="LinkedIn Profile" />
+            <SocialLink href={`https://${resumeData.contact.portfolio}`} icon={<Globe />} label="Portfolio Website" />
           </div>
         </div>
 
@@ -108,12 +108,13 @@ function ContactInfo({ icon, label, value, href }: { icon: React.ReactNode, labe
   return href ? <a href={href} className="block">{content}</a> : <div>{content}</div>;
 }
 
-function SocialLink({ href, icon }: { href: string, icon: React.ReactNode }) {
+function SocialLink({ href, icon, label }: { href: string, icon: React.ReactNode, label: string }) {
   return (
     <a 
       href={href} 
       target="_blank" 
       rel="noreferrer"
+      aria-label={label}
       className="p-4 bg-white/5 border border-white/10 rounded-2xl hover:bg-primary/20 hover:text-primary hover:border-primary/50 transition-all"
     >
       {icon}
