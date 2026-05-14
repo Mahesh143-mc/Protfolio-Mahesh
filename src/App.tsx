@@ -6,10 +6,12 @@ import { Education } from "./components/Education";
 import { Skills } from "./components/Skills";
 import { Contact } from "./components/Contact";
 import { resumeData } from "./data/resumeData";
-import { motion, useScroll, useSpring } from "framer-motion";
-import React from "react";
+import { Preloader } from "./components/Preloader";
+import { motion, useScroll, useSpring, AnimatePresence } from "framer-motion";
+import React, { useState, useEffect } from "react";
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -17,9 +19,40 @@ function App() {
     restDelta: 0.001
   });
 
+  useEffect(() => {
+    // Preload critical images
+    const criticalImages = [
+      resumeData.profileImage,
+      ...resumeData.projects.map(p => p.image)
+    ];
+
+    const preloadImages = async () => {
+      const promises = criticalImages.map(src => {
+        return new Promise((resolve) => {
+          const img = new Image();
+          img.src = src;
+          img.onload = resolve;
+          img.onerror = resolve; // Continue anyway
+        });
+      });
+
+      // Show splash for at least 7 seconds, but wait for images if needed
+      await Promise.all([
+        ...promises,
+        new Promise(resolve => setTimeout(resolve, 7000))
+      ]);
+      
+      setIsLoading(false);
+    };
+
+    preloadImages();
+  }, []);
+
   return (
     <div className="bg-background text-foreground selection:bg-primary/30 selection:text-primary relative overflow-x-hidden">
-      {/* Global Background (Kept clean for Hero) */}
+      <AnimatePresence mode="wait">
+        {isLoading && <Preloader key="preloader" />}
+      </AnimatePresence>
       <div className="fixed inset-0 bg-[#030014] -z-20" />
 
 
