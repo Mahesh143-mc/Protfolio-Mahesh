@@ -9,7 +9,7 @@ import { resumeData } from "./data/resumeData";
 import { Preloader } from "./components/Preloader";
 import { motion, useScroll, useSpring, AnimatePresence } from "framer-motion";
 import React, { useState, useEffect } from "react";
-import { SpeedInsights } from "@vercel/speed-insights/react";
+// import { SpeedInsights } from "@vercel/speed-insights/react";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -51,7 +51,7 @@ function App() {
 
   return (
     <div className="bg-background text-foreground selection:bg-primary/30 selection:text-primary relative overflow-x-hidden">
-      <SpeedInsights />
+      {/* <SpeedInsights /> */}
       <AnimatePresence mode="wait">
         {isLoading && <Preloader key="preloader" />}
       </AnimatePresence>
