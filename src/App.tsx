@@ -115,7 +115,7 @@ function App() {
                 className="lg:col-span-2 glass p-8 rounded-3xl relative group overflow-hidden"
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: false, amount: 0.3 }}
+                viewport={{ once: true, amount: 0.3 }}
                 transition={{ duration: 0.8 }}
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -134,7 +134,7 @@ function App() {
           <Education />
           <Contact />
           
-          <footer className="py-12 border-t border-white/5 text-center text-muted-foreground bg-background/80 backdrop-blur-md">
+          <footer className="py-8 md:py-12 px-4 border-t border-white/5 text-center text-muted-foreground bg-background/80 backdrop-blur-md">
             <p>© {new Date().getFullYear()} {resumeData.name}. Built with React & Framer Motion.</p>
           </footer>
           </div>
@@ -150,7 +150,7 @@ function Stat({ label, value, delay = 0 }: { label: string, value: string, delay
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false, amount: 0.5 }}
+      viewport={{ once: true, amount: 0.5 }}
       transition={{ duration: 0.5, delay }}
       className="p-6 glass rounded-2xl group hover:border-primary/50 transition-colors"
     >

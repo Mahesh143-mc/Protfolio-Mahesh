@@ -33,7 +33,7 @@ export function Skills() {
               key={key}
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: false, amount: 0.2 }}
+              viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.3, delay: index * 0.1 }}
               className="p-6 glass rounded-2xl group hover:border-primary/50 transition-colors"
             >

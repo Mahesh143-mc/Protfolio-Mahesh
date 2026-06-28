@@ -17,9 +17,9 @@ export function Education() {
           {resumeData.education.map((edu, index) => (
             <motion.div
               key={edu.degree}
-              initial={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: false, amount: 0.2 }}
+              viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="relative pl-8 border-l-2 border-border pb-8 last:pb-0"
             >
@@ -49,9 +49,9 @@ export function Education() {
                 href={cert.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                initial={{ opacity: 0, x: 20 }}
+                initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: false, amount: 0.2 }}
+                viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="p-5 glass rounded-2xl flex items-center gap-4 group hover:border-primary/50 transition-all hover:scale-[1.02] cursor-pointer"
               >

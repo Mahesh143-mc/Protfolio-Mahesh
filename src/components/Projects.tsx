@@ -93,6 +93,7 @@ export function Projects() {
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium"
           >
             <Code size={16} /> Featured Work
@@ -100,6 +101,7 @@ export function Projects() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ delay: 0.1 }}
             className="text-muted-foreground text-base md:text-lg max-w-2xl mx-auto px-4"
           >
@@ -246,6 +248,7 @@ export function Projects() {
               key={exp.project}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               className="bg-[#111827]/30 border border-white/5 rounded-[40px] p-8 md:p-12 relative group overflow-hidden"
             >
               <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 blur-[80px] -z-10 rounded-full" />
