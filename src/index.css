@@ -47,6 +47,20 @@
   @apply bg-clip-text text-transparent bg-gradient-to-r from-violet-400 via-purple-500 to-fuchsia-500;
 }
 
+/* Hardware-accelerated Smooth Scrolling Support */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
@@ -58,21 +72,23 @@
   @apply bg-primary/20 rounded-full hover:bg-primary/40 transition-colors;
 }
 
-/* Animated Background Blobs */
+/* Animated Background Blobs - GPU Optimized */
 .blob {
   position: absolute;
-  filter: blur(80px);
+  filter: blur(60px);
   opacity: 0.15;
   z-index: -1;
   animation: blob-float 20s infinite alternate;
   border-radius: 50%;
   background: radial-gradient(circle, currentColor 0%, transparent 70%);
+  transform: translateZ(0);
+  will-change: transform;
 }
 
 @keyframes blob-float {
   0% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(100px, 50px) scale(1.1); }
-  100% { transform: translate(-50px, 100px) scale(0.9); }
+  50% { transform: translate(80px, 40px) scale(1.08); }
+  100% { transform: translate(-40px, 80px) scale(0.92); }
 }
 
 .animation-delay-2000 {
@@ -83,19 +99,19 @@
   animation-delay: 4s;
 }
 
-
-/* Light Leak Effects */
+/* Light Leak Effects - GPU Composited */
 .light-leak-blue {
   position: fixed;
   top: 10%;
   left: -5%;
-  width: 1000px;
-  height: 1000px;
-  background: radial-gradient(circle, #3b82f6 0%, transparent 70%);
-  filter: blur(150px);
-  opacity: 0.15;
+  width: 900px;
+  height: 900px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.22) 0%, rgba(59, 130, 246, 0.06) 45%, transparent 70%);
+  filter: blur(80px);
   z-index: -10;
   pointer-events: none;
+  transform: translateZ(0);
+  will-change: transform, opacity;
   animation: pulse-slow 15s infinite alternate;
 }
 
@@ -103,46 +119,51 @@
   position: fixed;
   bottom: -5%;
   right: -5%;
-  width: 1100px;
-  height: 1100px;
-  background: radial-gradient(circle, #a855f7 0%, transparent 70%);
-  filter: blur(150px);
-  opacity: 0.15;
+  width: 950px;
+  height: 950px;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.22) 0%, rgba(168, 85, 247, 0.06) 45%, transparent 70%);
+  filter: blur(80px);
   z-index: -10;
   pointer-events: none;
+  transform: translateZ(0);
+  will-change: transform, opacity;
   animation: pulse-slow 20s infinite alternate-reverse;
 }
 
 @keyframes pulse-slow {
-  0% { opacity: 0.05; transform: scale(1); }
-  100% { opacity: 0.12; transform: scale(1.1); }
+  0% { opacity: 0.08; transform: scale(1) translateZ(0); }
+  100% { opacity: 0.16; transform: scale(1.08) translateZ(0); }
 }
-/* Flowing Light Orb Animation */
+
+/* Flowing Light Orb Animation - GPU Composited */
 .flowing-orb {
   position: fixed;
-  width: 1000px;
-  height: 1000px;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
-  filter: blur(160px);
+  width: 900px;
+  height: 900px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.18) 0%, rgba(139, 92, 246, 0.05) 50%, transparent 70%);
+  filter: blur(90px);
   z-index: -5;
   pointer-events: none;
   border-radius: 50%;
+  transform: translateZ(0);
+  will-change: transform;
   animation: drift 25s infinite linear;
 }
 
 @keyframes drift {
-  0% { transform: translate(-20%, -20%) rotate(0deg); }
-  33% { transform: translate(50%, 10%) rotate(120deg); }
-  66% { transform: translate(-10%, 40%) rotate(240deg); }
-  100% { transform: translate(-20%, -20%) rotate(360deg); }
+  0% { transform: translate(-20%, -20%) rotate(0deg) translateZ(0); }
+  33% { transform: translate(40%, 10%) rotate(120deg) translateZ(0); }
+  66% { transform: translate(-10%, 35%) rotate(240deg) translateZ(0); }
+  100% { transform: translate(-20%, -20%) rotate(360deg) translateZ(0); }
 }
 
-/* Background Twinkling Stars */
+/* Background Twinkling Stars - GPU Optimized */
 .stars-container {
   position: absolute;
   inset: 0;
   pointer-events: none;
   z-index: -5;
+  contain: strict;
 }
 
 .star {
@@ -150,10 +171,14 @@
   background: white;
   border-radius: 50%;
   opacity: 0.3;
-  animation: twinkle var(--duration) infinite ease-in-out;
+  transform: translateZ(0);
+  will-change: transform, opacity;
+  animation-name: twinkle;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
 }
 
 @keyframes twinkle {
-  0%, 100% { opacity: 0.2; transform: scale(1); }
-  50% { opacity: 0.8; transform: scale(1.2); }
+  0%, 100% { opacity: 0.2; transform: scale(1) translateZ(0); }
+  50% { opacity: 0.85; transform: scale(1.2) translateZ(0); }
 }

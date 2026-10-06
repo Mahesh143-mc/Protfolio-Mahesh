@@ -3,7 +3,7 @@ import { Download, MessageSquare, Github, Linkedin, Mail } from "lucide-react";
 import { resumeData } from "../data/resumeData";
 import { useState, useEffect } from "react";
 
-const WORDS = ["MAHESH", "DEVELOPER", "VIBE CODING", "DESIGNER", "PROBLEM SOLVER"];
+const WORDS = ["MAHESH", "CHIMERATECH FOUNDER", "FULL-STACK DEV", "VIBE CODER", "PROBLEM SOLVER"];
 
 export function Hero() {
   const [typedText, setTypedText] = useState("");
